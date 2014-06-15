@@ -1,0 +1,16 @@
+{
+    "requireCurlyBraces": [
+        "if",
+        "else",
+        "for",
+        "while",
+        "do",
+        "try",
+        "catch",
+        "case",
+        "default"
+    ],
+    "requireParenthesesAroundIIFE": true,
+    "requireCommaBeforeLineBreak": true,
+    "disallowYodaConditions": true
+}

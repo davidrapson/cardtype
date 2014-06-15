@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="cardtype.js"></script>
+    <script charset="utf-8">
+        var inputNumber = CardType.normalize('4000-0000-0000-0002'); // Visa
+        var cardNo = CardType.normalize(inputNumber);
+        var theType = CardType.getType(cardNo);
+        console.log( theType );
+        console.log( CardType.normalize(inputNumber) );
+        console.log( CardType.validLuhn(cardNo) );
+        console.log( CardType.validLength( cardNo, theType ) );
+        console.log( CardType.validate(cardNo) );
+    </script>
+</body>
+</html>
