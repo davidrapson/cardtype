@@ -1,15 +1,16 @@
 require(['cardtype'], function( CardType ) {
 
-    var cardClass;
-    var el = document.querySelector('input[name="card_number"]');
+    var card = new CardType(),
+        el = document.querySelector('input[name="card_number"]'),
+        cardClass;
+
     el.addEventListener('input', function() {
-        var result = CardType.validate(this.value);
-        if ( result.luhnValid && result.lengthValid ) {
-            cardClass = 'card-type--' + result.cardType.name;
+        var result = card.validate(this.value);
+        if ( result.valid ) {
+            el.classList.remove( cardClass );
+            cardClass = 'card-type--' + result.cardType;
             el.classList.add( cardClass );
-            console.log(cardClass);
         } else {
-            console.log(cardClass);
             el.classList.remove( cardClass );
             cardClass = false;
         }

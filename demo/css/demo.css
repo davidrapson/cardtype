@@ -1,0 +1,51 @@
+body, input, label {
+    font: 100%/1.5 sans-serif;
+}
+body {
+    width: 90%;
+    max-width: 640px;
+    margin: 2em auto;
+}
+label, input[type="text"] {
+    display: block
+}
+ul {
+    list-style: none;
+    margin: 0; padding: 0;
+}
+label {
+    font-weight: bold;
+    margin-bottom: .3em;
+}
+input[type="text"] {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    padding: .5em 1em;
+    width: 100%;
+}
+
+input[type="text"] {
+    background-image: url('../img/cards.png');
+    background-repeat: no-repeat;
+    background-position: 10px 0;
+    padding-left: 50px;
+}
+input[type="text"].card-type--visa {
+  background-position: 10px -40px;
+}
+input[type="text"].card-type--mastercard {
+  background-position: 10px -80px;
+}
+input[type="text"].card-type--maestro {
+  background-position: 10px -120px;
+}
+input[type="text"].card-type--amex {
+  background-position: 10px -160px;
+}
+input[type="text"].card-type--diners {
+  background-position: 10px -200px;
+}
+input[type="text"].card-type--discover {
+  background-position: 10px -240px;
+}

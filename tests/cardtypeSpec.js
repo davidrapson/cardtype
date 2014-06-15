@@ -11,103 +11,110 @@
 
     describe("#getCardType", function() {
 
+        var card = new CardType();
+
         it("Expects card type to be amex", function() {
-            expect(CardType.getType( numbers.amex ).name).toBe('amex');
+            expect(card.getType( numbers.amex ).name).toBe('amex');
         });
 
         it("Expects card type to be discover", function() {
-            expect(CardType.getType( numbers.discover ).name).toBe('discover');
+            expect(card.getType( numbers.discover ).name).toBe('discover');
         });
 
         it("Expects card type to be maestro", function() {
-            expect(CardType.getType( numbers.maestro ).name).toBe('maestro');
+            expect(card.getType( numbers.maestro ).name).toBe('maestro');
         });
 
         it("Expects card type to be mastercard", function() {
-            expect(CardType.getType( numbers.mastercard ).name).toBe('mastercard');
+            expect(card.getType( numbers.mastercard ).name).toBe('mastercard');
         });
 
         it("Expects card type to be visa", function() {
-            expect(CardType.getType( numbers.visa ).name).toBe('visa');
+            expect(card.getType( numbers.visa ).name).toBe('visa');
         });
 
         it("Expects card type to be visa electron", function() {
-            expect(CardType.getType( numbers.visa_electron ).name).toBe('visa_electron');
+            expect(card.getType( numbers.visa_electron ).name).toBe('visa_electron');
         });
 
     });
 
     describe("#validLength", function() {
 
-        var type = CardType.getType( numbers.visa );
+        var card = new CardType();
+        var type = card.getType( numbers.visa );
 
         it("Expects card number to have a valid length", function() {
-            expect(CardType.validLength( numbers.visa, type )).toBe(true);
+            expect(card.isValidLength( numbers.visa, type )).toBe(true);
         });
         it("Expects card number to have an invalid length", function() {
-            expect(CardType.validLength( '40000000000000020000', type )).toBe(false);
+            expect(card.isValidLength( '40000000000000020000', type )).toBe(false);
         });
         it("Expects card number to have an invalid length", function() {
-            expect(CardType.validLength( '40000000000000', type )).toBe(false);
+            expect(card.isValidLength( '40000000000000', type )).toBe(false);
         });
         it("Expects card number to have an invalid length", function() {
-            expect(CardType.validLength( '123456', type )).toBe(false);
+            expect(card.isValidLength( '123456', type )).toBe(false);
         });
 
     });
 
-    describe("#validateNumber", function() {
+    describe("#isValid", function() {
 
+        var card = new CardType();
         it("Expects card number to be valid", function() {
-            expect(CardType.validateNumber( numbers.visa ).cardType.name).toBe('visa');
-        });
-        it("Expects luhn check to have passed", function() {
-            expect(CardType.validateNumber( numbers.visa ).luhnValid).toBe(true);
-        });
-        it("Expects length check to have passed", function() {
-            expect(CardType.validateNumber( numbers.visa ).lengthValid).toBe(true);
-        });
-        it("Expects luhn check to have failed", function() {
-            expect(CardType.validateNumber( '4000000000000' ).luhnValid).toBe(false);
-        });
-        it("Expects length check to have failed", function() {
-            expect(CardType.validateNumber( '4000000000000' ).lengthValid).toBe(false);
+            expect(card.isValid( numbers.visa )).toBe(true);
+            expect(card.isValid( '4000-0000-0000-0002' )).toBe(true);
+            expect(card.isValid( '4000 0000 0000 0002' )).toBe(true);
+            expect(card.isValid( '4000000000000002' )).toBe(true);
         });
 
     });
 
     describe("#validate", function() {
 
+        var card = new CardType();
         it("Expects card number to be valid", function() {
-            expect(CardType.validateNumber( numbers.amex ).cardType.name).toBe('amex');
-            expect(CardType.validateNumber( numbers.maestro ).cardType.name).toBe('maestro');
-            expect(CardType.validateNumber( numbers.visa ).cardType.name).toBe('visa');
-            expect(CardType.validate( '4000-0000-0000-0002' ).cardType.name).toBe('visa');
-            expect(CardType.validate( '4000 0000 0000 0002' ).cardType.name).toBe('visa');
+            expect(card.validate( '4000-0000-0000-0002' ).valid).toBe(true);
+            expect(card.validate( '4000 0000 0000 0002' ).valid).toBe(true);
+            expect(card.validate( '4000000000000002' ).valid).toBe(true);
+        });
+        it("Expects card type to be valid", function() {
+            expect(card.validate( numbers.amex ).cardType).toBe('amex');
+            expect(card.validate( numbers.maestro ).cardType).toBe('maestro');
+            expect(card.validate( numbers.visa ).cardType).toBe('visa');
+            expect(card.validate( '4000-0000-0000-0002' ).cardType).toBe('visa');
+            expect(card.validate( '4000 0000 0000 0002' ).cardType).toBe('visa');
         });
         it("Expects luhn check to have passed", function() {
-            expect(CardType.validate( '4000-0000-0000-0002' ).luhnValid).toBe(true);
-            expect(CardType.validate( '4000 0000 0000 0002' ).luhnValid).toBe(true);
-            expect(CardType.validate( '4000000000000002' ).luhnValid).toBe(true);
+            expect(card.validate( '4000-0000-0000-0002' ).validLuhn).toBe(true);
+            expect(card.validate( '4000 0000 0000 0002' ).validLuhn).toBe(true);
+            expect(card.validate( '4000000000000002' ).validLuhn).toBe(true);
         });
         it("Expects length check to have passed", function() {
-            expect(CardType.validate( numbers.visa ).lengthValid).toBe(true);
+            expect(card.validate( numbers.visa ).validLength).toBe(true);
         });
         it("Expects luhn check to have failed", function() {
-            expect(CardType.validate( '4000000000000' ).luhnValid).toBe(false);
-            expect(CardType.validate( '400-000000-0000' ).luhnValid).toBe(false);
-            expect(CardType.validate( '400 000000-0000' ).luhnValid).toBe(false);
+            expect(card.validate( '4000000000000' ).validLuhn).toBe(false);
+            expect(card.validate( '400-000000-0000' ).validLuhn).toBe(false);
+            expect(card.validate( '400 000000-0000' ).validLuhn).toBe(false);
         });
         it("Expects length check to have failed", function() {
-            expect(CardType.validate( '4000000000000' ).lengthValid).toBe(false);
+            expect(card.validate( '4000000000000' ).validLuhn).toBe(false);
         });
 
     });
 
     describe("#normalize", function() {
 
+        var card = new CardType();
+        var expected = '4000000000000002';
         it("Expects card number to be normalized", function() {
-            expect(CardType.validateNumber( numbers.visa ).cardType.name).toBe('visa');
+            expect(card.normalize( '4000000000000002' )).toBe(expected);
+            expect(card.normalize( '4000 0000 0000 0002' )).toBe(expected);
+            expect(card.normalize( '4000-0000-0000-0002' )).toBe(expected);
+            expect(card.normalize( '40 000-000-0 00-00-0 02' )).toBe(expected);
+            expect(card.normalize( '400--00  -00 00---0000 0  02' )).toBe(expected);
         });
 
     });
