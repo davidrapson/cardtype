@@ -21,7 +21,7 @@ CardType has AMD (Asynchronous Module Definition) support.
 
 ````
 var CardType = require('cardtype');
-var card = new CardType;
+var card = new CardType();
 card.validate('4000000000000002');
 //=> { valid: true, validLength: true, isValidLuhn: true, cardType: 'visa' }
 ````
