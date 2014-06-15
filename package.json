@@ -10,7 +10,7 @@
     "url": "git@github.com:davidrapson/cardtype.git"
   },
   "scripts": {
-    "test": "karma start"
+    "test": "grunt test"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

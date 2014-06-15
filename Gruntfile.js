@@ -84,6 +84,11 @@ module.exports = function(grunt) {
         'uglify',
         'copy'
     ]);
+    grunt.registerTask('test', [
+        'jscs',
+        'jshint',
+        'karma:unit'
+    ]);
     grunt.registerTask('default', [
         'build'
     ]);
