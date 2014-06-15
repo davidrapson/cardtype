@@ -49,6 +49,22 @@ module.exports = function(grunt) {
             }
         },
 
+        copy: {
+            demo: {
+                src: 'cardtype.js',
+                dest: 'demo/js/cardtype.js',
+            }
+        },
+
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js',
+                runnerPort: 9999,
+                singleRun: true,
+                browsers: ['PhantomJS'],
+            }
+        },
+
         watch: {
             lint: {
                 files: ['<%= jshint.files %>'],
@@ -64,7 +80,9 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'jscs',
         'jshint',
-        'uglify'
+        'karma:unit',
+        'uglify',
+        'copy'
     ]);
     grunt.registerTask('default', [
         'build'
