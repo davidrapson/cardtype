@@ -11,9 +11,11 @@ Install via Bower:
 ````
 bower install cardtype -S
 ````
+## Demo
+
+[View the demo](http://davidrapson.co.uk/cardtype/demo/)
 
 ## Usage
-
 
 ### Amd
 
@@ -21,7 +23,7 @@ CardType has AMD (Asynchronous Module Definition) support.
 
 ````
 var CardType = require('cardtype');
-var card = new CardType;
+var card = new CardType();
 card.validate('4000000000000002');
 //=> { valid: true, validLength: true, isValidLuhn: true, cardType: 'visa' }
 ````
