@@ -17,7 +17,7 @@ bower install cardtype -S
 
 ## Usage
 
-### Amd
+### AMD
 
 CardType has AMD (Asynchronous Module Definition) support.
 
