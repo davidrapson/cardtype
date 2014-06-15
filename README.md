@@ -4,7 +4,14 @@ Credit card validator with AMD support.
 
 [![Build Status](https://travis-ci.org/davidrapson/cardtype.svg?branch=master)](https://travis-ci.org/davidrapson/cardtype)
 
+## Installation
+
+Install via Bower:
+
+`bower install cardtype -S`
+
 ## Usage
+
 
 ### Amd
 
