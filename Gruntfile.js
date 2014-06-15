@@ -80,7 +80,6 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'jscs',
         'jshint',
-        'karma:unit',
         'uglify',
         'copy'
     ]);
@@ -90,7 +89,8 @@ module.exports = function(grunt) {
         'karma:unit'
     ]);
     grunt.registerTask('default', [
-        'build'
+        'build',
+        'karma:unit'
     ]);
 
 };
