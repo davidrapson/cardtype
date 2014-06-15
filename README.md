@@ -8,7 +8,9 @@ Credit card validator with AMD support.
 
 Install via Bower:
 
-`bower install cardtype -S`
+````
+bower install cardtype -S
+````
 
 ## Usage
 
