@@ -1,6 +1,6 @@
 /**
  * cardtype.js
- * Made Media Ltd.
+ * David Rapson
  * Based on: https://github.com/PawelDecowski/jQuery-CreditCardValidator/
  *
  * This work is licensed under the Creative Commons Attribution-ShareAlike 3.0
