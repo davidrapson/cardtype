@@ -1,4 +1,4 @@
-# CardType.js v0.2.0
+# CardType.js v0.3.0
 
 Credit card validaton and type checking module with AMD support.
 
