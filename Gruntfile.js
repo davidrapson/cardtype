@@ -27,7 +27,8 @@ module.exports = function(grunt) {
         jshint: {
             files: [
                 'Gruntfile.js',
-                'cardtype.js'
+                'cardtype.js',
+                'tests/**/*.js'
             ],
             options: {
                 jshintrc: '.jshintrc'
@@ -68,7 +69,7 @@ module.exports = function(grunt) {
         watch: {
             lint: {
                 files: ['<%= jshint.files %>'],
-                tasks: [ 'build' ]
+                tasks: [ 'build', 'karma:unit' ]
             }
         }
 

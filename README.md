@@ -41,19 +41,30 @@ If you are not using AMD then CardType is exposed as a global variable.
 </script>
 ````
 
-## Accepted Card Types
+## Accepted card types
 
-* American Express (`amex`)
-* Diners Club Carte Blance (`diners_club_carte_blanche`)
-* Diners Club International (`diners_club_international`)
-* Discover (`discover`)
-* JCB (`jcb`)
-* Laser (`laser`)
-* Maestro (`maestro`)
-* MasterCard (`mastercard`)
-* Visa (`visa`)
-* Visa Electron (`visa_electron`)
+An optional accepted cards array can be passed to the constuctor to restrict which cards are validated:
 
+````
+var card = new CardType([ 'amex', 'discover' ]);
+card.validate('6011000000000004'); // Discover
+//=> { valid: true, validLength: true, isValidLuhn: true, cardType: 'discover' }
+card.validate('4000000000000002'); // Visa
+//=> false
+````
+
+### All accepted card types
+
+* American Express (amex)
+* Diners Club Carte Blance (diners_club_carte_blanche)
+* Diners Club International (diners_club_international)
+* Discover (discover)
+* JCB (jcb)
+* Laser (laser)
+* Maestro (maestro)
+* MasterCard (mastercard)
+* Visa (visa)
+* Visa Electron (visa_electron)
 
 ## API
 
