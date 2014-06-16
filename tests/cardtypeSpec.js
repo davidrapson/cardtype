@@ -1,3 +1,4 @@
+/*global CardType: true, describe: true, it: true, expect: true */
 (function() {
 
     var numbers = {
@@ -35,6 +36,24 @@
 
         it("Expects card type to be visa electron", function() {
             expect(card.getType( numbers.visa_electron ).name).toBe('visa_electron');
+        });
+
+        it("Should allow optional accepted card types array to be passed", function(){
+            var fullCard = new CardType();
+            var limitedCard = new CardType([ 'amex', 'visa' ]);
+
+            expect(limitedCard.getType( numbers.amex ).name).toBe('amex');
+            expect(fullCard.getType( numbers.discover ).name).toBe('discover');
+            expect(fullCard.getType( numbers.maestro ).name).toBe('maestro');
+            expect(fullCard.getType( numbers.mastercard ).name).toBe('mastercard');
+            expect(fullCard.getType( numbers.visa ).name).toBe('visa');
+
+            expect(limitedCard.getType( numbers.amex ).name).toBe('amex');
+            expect(limitedCard.getType( numbers.visa ).name).toBe('visa');
+            expect(limitedCard.getType( numbers.discover ).name).toBe(undefined);
+            expect(limitedCard.getType( numbers.maestro ).name).toBe(undefined);
+            expect(limitedCard.getType( numbers.mastercard ).name).toBe(undefined);
+
         });
 
     });
