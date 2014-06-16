@@ -6,14 +6,17 @@
   "authors": [
     "David Rapson"
   ],
-  "description": "Credit card validator with AMD support",
+  "description": "Credit card validaton and type checking module with AMD support",
   "moduleType": [
     "amd",
     "globals"
   ],
   "keywords": [
     "card",
-    "creditcard"
+    "credit card",
+    "card validation",
+    "valdation",
+    "luhn"
   ],
   "license": "CC BY-SA 3.0",
   "ignore": [
