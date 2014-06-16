@@ -21,6 +21,8 @@
   "license": "CC BY-SA 3.0",
   "ignore": [
     "**/.*",
+    "package.json",
+    "karma.conf.js",
     "node_modules",
     "bower_components",
     "test",
