@@ -178,15 +178,10 @@
      */
     CardType.prototype.validate = function( number ) {
 
-        var normalized = this.normalize( number );
-        var cardType = this.getType( normalized ),
-            validLuhn = false,
-            validLength = false;
-
-        if ( cardType ) {
-            validLuhn = this.isValidLuhn( normalized );
-            validLength = this.isValidLength( normalized, cardType );
-        }
+        var normalized = this.normalize( number ),
+            cardType = this.getType( normalized ),
+            validLuhn = ( cardType ) ? this.isValidLuhn( normalized ) : false,
+            validLength =  ( cardType ) ? this.isValidLength( normalized, cardType ) : false;
 
         return {
             valid: ( validLuhn && validLength ),
