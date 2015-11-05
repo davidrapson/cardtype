@@ -10,8 +10,8 @@
     "url": "git@github.com:davidrapson/cardtype.git"
   },
   "scripts": {
-    "lint": "xo --space 4",
-    "test": "karma start --singleRun",
+    "lint": "xo --space 4 cardtype.js",
+    "test": "npm run lint && karma start --singleRun",
     "minify": "uglifyjs cardtype.js --compress --mangle | headr --version --license > cardtype.min.js",
     "copy": "cpy cardtype.min.js demo/js --rename cardtype.js",
     "build": "npm run test && npm run minify && npm run copy"

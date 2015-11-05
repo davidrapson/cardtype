@@ -18,16 +18,16 @@
         root.CardType = factory();
     }
 })(this, function () {
-
-    function _indexOf( needle ) {
+    function _indexOf(needle) {
         var indexOf;
-        if( typeof Array.prototype.indexOf === 'function' ) {
+        if (typeof Array.prototype.indexOf === 'function') {
             indexOf = Array.prototype.indexOf;
         } else {
-            indexOf = function(needle) {
-                var i = -1, index = -1;
-                for(i = 0; i < this.length; i++) {
-                    if(this[i] === needle) {
+            indexOf = function (needle) {
+                var i = -1;
+                var index = -1;
+                for (i = 0; i < this.length; i++) {
+                    if (this[i] === needle) {
                         index = i;
                         break;
                     }
@@ -40,10 +40,11 @@
 
     /**
      * CardType constructor
-     * @param {Array} accepted  Array of accepted card types
-     * @return {Object}         this
+     *
+     * @param {Array} accepted - Array of accepted card types
+     * @return {Object}
      */
-    function CardType( accepted ) {
+    function CardType(accepted) {
         this.acceptedTypes = accepted || [
             'amex',
             'diners_club_carte_blanche',
@@ -113,13 +114,14 @@
 
     /**
      * Get type object
-     * @param {String} number  Card number
-     * @return {Object}        Card type details
+     *
+     * @param number - Card number
+     * @return {Object} - Card type details
      */
-    CardType.prototype.getType = function( number ) {
+    CardType.prototype.getType = function (number) {
         var types = this.cardTypes;
         for (var i = 0; i < types.length; i++) {
-            if ( ( number.match(types[i].pattern) ) && ( _indexOf.call( this.acceptedTypes, types[i].name ) > -1  ) ) {
+            if ((number.match(types[i].pattern)) && (_indexOf.call(this.acceptedTypes, types[i].name) > -1)) {
                 return types[i];
             }
         }
@@ -128,16 +130,19 @@
 
     /**
      * Passes Luhn algorithm
-     * http://en.wikipedia.org/wiki/Luhn_algorithm
-     * @param {String} number  Card number
+     *
+     * @see @{link http://en.wikipedia.org/wiki/Luhn_algorithm}
+     * @param number - Card number
      * @return {Boolean}
      */
-    CardType.prototype.isValidLuhn = function( number ) {
-        var sum = 0, digit,
-            digits = number.split('').reverse();
-        for  ( var i = 0; i < digits.length; i++ ) {
-            digit = +digits[i];
-            if ( i % 2 ) {
+    CardType.prototype.isValidLuhn = function (number) {
+        var sum = 0;
+        var digits = number.split('').reverse();
+        var digit;
+
+        for (var i = 0; i < digits.length; i++) {
+            digit = Number(digits[i]);
+            if (i % 2) {
                 digit *= 2;
                 sum += (digit < 10) ? digit : digit - 9;
             } else {
@@ -149,61 +154,59 @@
 
     /**
      * Card has valid length
-     * @param {String} number   Card number
-     * @param {Object} cardType Type object for card
+     *
+     * @param number - Card number
+     * @param {Object} cardType - Type object for card
      * @return {Boolean}
      */
-    CardType.prototype.isValidLength = function( number, cardType ) {
-        return ( _indexOf.call(cardType.validLength, number.length ) > -1 );
+    CardType.prototype.isValidLength = function (number, cardType) {
+        return (_indexOf.call(cardType.validLength, number.length) > -1);
     };
 
     /**
      * Passes Luhn & length check
-     * @param {String} number Card number
+     *
+     * @param number - Card number
      * @return {Boolean}
      */
-    CardType.prototype.isValid = function( number ) {
-        return this.validate( number ).valid;
+    CardType.prototype.isValid = function (number) {
+        return this.validate(number).valid;
     };
 
     /**
      * Validate card details
      *
-     * Combination of:
-     * - .normalise()
-     * - .isValid()
-     * - .isValidLuhn()
-     * - .isValidLength()
-     * //=> { valid: true, validLength: true, isValidLuhn: true, cardType: 'visa' }
+     * @example
+     * // returns { valid: true, validLength: true, isValidLuhn: true, cardType: 'visa' }
+     * var card = new CardType();
+     * card.validate('4000000000000002');
      *
-     * @param {String} number  Card number
-     * @return {Object}        Validation object
+     * @param number - Card number
+     * @return {Object} Validation object
      */
-    CardType.prototype.validate = function( number ) {
-
-        var normalized = this.normalize( number ),
-            cardType = this.getType( normalized ),
-            validLuhn = ( cardType ) ? this.isValidLuhn( normalized ) : false,
-            validLength =  ( cardType ) ? this.isValidLength( normalized, cardType ) : false;
+    CardType.prototype.validate = function (number) {
+        var normalized = this.normalize(number);
+        var cardType = this.getType(normalized);
+        var validLuhn = (cardType) ? this.isValidLuhn(normalized) : false;
+        var validLength = (cardType) ? this.isValidLength(normalized, cardType) : false;
 
         return {
-            valid: ( validLuhn && validLength ),
+            valid: (validLuhn && validLength),
             validLuhn: validLuhn,
             validLength: validLength,
             cardType: cardType.name
         };
-
     };
 
     /**
      * Strip '-' and ' ' characters
-     * @param {String} number  Card number
-     * @return {String}        Normalise card number
+     *
+     * @param number - Card number
+     * @return {String} Normalised card number
      */
-    CardType.prototype.normalize = function( number ) {
+    CardType.prototype.normalize = function (number) {
         return number.replace(/[ -]/g, '');
     };
 
     return CardType;
-
 });
