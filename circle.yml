@@ -1,0 +1,11 @@
+machine:
+  node:
+    version: 4.1.0
+dependencies:
+  override:
+    - npm install
+deployment:
+  production:
+    branch: master
+    commands:
+    - npm run build
