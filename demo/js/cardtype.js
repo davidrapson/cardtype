@@ -1,7 +1,7 @@
 /**
   * cardtype - Credit card validator with AMD support
   *
-  * @version v1.0.0-pre
+  * @version v1.0.0
   * @license CC-BY-SA-3.0
   */
 

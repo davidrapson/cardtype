@@ -1,6 +1,6 @@
 {
   "name": "cardtype",
-  "version": "1.0.0-pre",
+  "version": "1.0.0",
   "description": "Credit card validator with AMD support",
   "main": "cardtype.js",
   "author": "David Rapson",

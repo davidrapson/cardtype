@@ -2,9 +2,9 @@
 
 An AMD compatible credit card validaton and type checking component.
 
-[![Build Status](https://travis-ci.org/davidrapson/cardtype.svg?branch=master)](https://travis-ci.org/davidrapson/cardtype)
+[![Circle CI](https://circleci.com/gh/davidrapson/cardtype.svg)](https://circleci.com/gh/davidrapson/cardtype)
 
-- [Docs][http://davidrapson.github.io/cardtype/]
+- [Docs](http://davidrapson.github.io/cardtype/)
 - [Demo](https://rawgit.com/davidrapson/cardtype/master/demo/index.html)
 
 ## Install
