@@ -1,0 +1,16 @@
+{
+  "tags": {
+    "dictionaries": ["jsdoc"]
+  },
+  "source": {
+    "include": ["cardtype.js", "README.md"]
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "opts": {
+    "destination": "./docs/",
+    "encoding": "utf8",
+    "template": "./node_modules/minami"
+  }
+}
