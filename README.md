@@ -4,6 +4,9 @@ An AMD compatible credit card validaton and type checking component.
 
 [![Build Status](https://travis-ci.org/davidrapson/cardtype.svg?branch=master)](https://travis-ci.org/davidrapson/cardtype)
 
+- [Docs][http://davidrapson.github.io/cardtype/]
+- [Demo](https://rawgit.com/davidrapson/cardtype/master/demo/index.html)
+
 ## Install
 
 Install via Bower:
@@ -62,57 +65,6 @@ card.validate('4000000000000002'); // Visa
 * MasterCard (mastercard)
 * Visa (visa)
 * Visa Electron (visa_electron)
-
-## API
-
-### .validate( number )
-
-````
-var card = new CardType();
-card.validate('4000000000000002');
-//=> { valid: true, validLength: true, isValidLuhn: true, cardType: 'visa' }
-````
-
-### .isValid( number )
-
-````
-var card = new CardType();
-card.isValid('4000000000000002');
-//=> true
-````
-
-### .isValidLuhn( number )
-
-````
-var card = new CardType();
-card.isValidLuhn('4000000000000002');
-//=> true
-````
-
-### .isValidLength( number, cardType )
-
-````
-var card = new CardType();
-var type = card.getType('4000000000000002');
-card.isValidLength('4000000000000002', type);
-//=> true
-````
-
-### .normalize()
-
-````
-var card = new CardType();
-card.normalize('4000-0000-0000-0002');
-//=> 4000000000000002
-````
-
-### .getType()
-
-````
-var card = new CardType();
-card.getType('4000000000000002');
-//=> { name: 'visa', pattern: /^4/, validLength: [16] }
-````
 
 ## License
 
