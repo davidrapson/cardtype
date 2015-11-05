@@ -1,14 +1,3 @@
-/**
- * CardType.js
- *
- * @author David Rapson
- * @see @{link https://github.com/PawelDecowski/jQuery-CreditCardValidator/}
- *
- * @license
- * This work is licensed under the Creative Commons Attribution-ShareAlike 3.0
- * Unported License. To view a copy of this license, visit:
- * http://creativecommons.org/licenses/by-sa/3.0/
- */
 /* eslint-env browser, node, amd */
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
@@ -40,10 +29,15 @@
     }
 
     /**
-     * CardType constructor
      * @class CardType
      * @param {Array} accepted - Array of accepted card types
      * @return {Object}
+     * @author David Rapson
+     * @see Based on {@link https://github.com/PawelDecowski/jQuery-CreditCardValidator/}
+     * @license
+     * This work is licensed under the Creative Commons Attribution-ShareAlike 3.0
+     * Unported License. To view a copy of this license, visit:
+     * http://creativecommons.org/licenses/by-sa/3.0/
      */
     function CardType(accepted) {
         this.acceptedTypes = accepted || [
@@ -134,8 +128,8 @@
      * Passes Luhn algorithm
      *
      * @memberof CardType
-     * @see @{link http://en.wikipedia.org/wiki/Luhn_algorithm}
-     * @param number - Card number
+     * @see {@link http://en.wikipedia.org/wiki/Luhn_algorithm}
+     * @param {String} number - Card number
      * @return {Boolean}
      */
     CardType.prototype.isValidLuhn = function (number) {
@@ -158,7 +152,7 @@
     /**
      * Card has valid length
      *
-     * @param number - Card number
+     * @param {String} number - Card number
      * @param {Object} cardType - Type object for card
      * @return {Boolean}
      */
@@ -170,7 +164,7 @@
      * Passes Luhn & length check
      *
      * @memberof CardType
-     * @param number - Card number
+     * @param {String} number - Card number
      * @return {Boolean}
      */
     CardType.prototype.isValid = function (number) {
@@ -181,7 +175,7 @@
      * Validate card details
      *
      * @memberof CardType
-     * @param number - Card number
+     * @param {String} number - Card number
      * @return {Object} Validation object
      *
      * @example
@@ -207,7 +201,7 @@
      * Strip '-' and ' ' characters
      *
      * @memberof CardType
-     * @param number - Card number
+     * @param {String} number - Card number
      * @return {String} Normalised card number
      */
     CardType.prototype.normalize = function (number) {
