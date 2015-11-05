@@ -11,9 +11,6 @@ Install via Bower:
 ````
 bower install cardtype -S
 ````
-## Demo
-
-[View the demo](http://davidrapson.co.uk/cardtype/demo/)
 
 ## Usage
 
