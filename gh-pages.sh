@@ -2,4 +2,4 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-git push origin `git subtree split --prefix docs v1-prep`:gh-pages --force
+git push origin `git subtree split --prefix docs master`:gh-pages --force

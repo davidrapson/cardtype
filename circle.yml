@@ -9,3 +9,7 @@ deployment:
     branch: master
     commands:
     - npm run build
+general:
+  branches:
+    ignore:
+      - gh-pages
