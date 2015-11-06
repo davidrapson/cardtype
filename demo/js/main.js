@@ -1,10 +1,9 @@
-require(['cardtype'], function( CardType ) {
-
-    var card = new CardType(),
-        el = document.querySelector('input[name="card_number"]'),
-        cardClass;
+require(['cardtype'], function (CardType) {
+    var card = new CardType();
+    var el = document.querySelector('input[name="card_number"]');
 
     el.addEventListener('input', function() {
+        var cardClass;
         var result = card.validate(this.value);
         if ( result.valid ) {
             el.classList.remove( cardClass );
@@ -15,5 +14,4 @@ require(['cardtype'], function( CardType ) {
             cardClass = false;
         }
     });
-
 });
