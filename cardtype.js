@@ -112,7 +112,7 @@
      *
      * @memberof CardType
      * @param number - Card number
-     * @return {Object} - Card type details
+     * @return {Object} Card type details
      */
     CardType.prototype.getType = function (number) {
         var types = this.cardTypes;
