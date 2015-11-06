@@ -1,7 +1,6 @@
 {
   "name": "cardtype",
   "main": "cardtype.js",
-  "version": "1.0.0",
   "homepage": "https://github.com/davidrapson/cardtype",
   "authors": [
     "David Rapson"
@@ -9,6 +8,7 @@
   "description": "Credit card validaton and type checking module with AMD support",
   "moduleType": [
     "amd",
+    "node",
     "globals"
   ],
   "keywords": [
@@ -18,10 +18,11 @@
     "valdation",
     "luhn"
   ],
-  "license": "CC BY-SA 3.0",
+  "license": "CC-BY-SA-3.0",
   "ignore": [
     "**/.*",
     "package.json",
+    "circle.yml",
     "karma.conf.js",
     "node_modules",
     "bower_components",
