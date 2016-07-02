@@ -20,18 +20,17 @@
     "start": "npm run build && npm run docs"
   },
   "devDependencies": {
-    "cpy-cli": "1.0.1",
-    "eslint": "2.13.1",
-    "headr": "0.1.0",
-    "jasmine-core": "2.4.1",
-    "jsdoc": "3.4.0",
-    "karma": "1.1.0",
-    "karma-jasmine": "1.0.2",
-    "karma-phantomjs-launcher": "1.0.1",
-    "minami": "1.1.1",
-    "phantomjs-prebuilt": "2.1.7",
-    "serve-here": "3.0.1",
-    "uglifyjs": "2.4.10",
-    "xo": "0.16.0"
+    "cpy": "^3.4.1",
+    "headr": "^0.1.0",
+    "jasmine-core": "^2.3.4",
+    "jsdoc": "^3.3.3",
+    "karma": "^0.13.15",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "minami": "^1.1.1",
+    "phantomjs": "^1.9.18",
+    "serve-here": "^2.7.5",
+    "uglifyjs": "^2.4.10",
+    "xo": "^0.10.1"
   }
 }
