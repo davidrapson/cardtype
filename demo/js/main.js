@@ -2,8 +2,8 @@ require(['cardtype'], function (CardType) {
     var card = new CardType();
     var el = document.querySelector('input[name="card_number"]');
 
+    var cardClass;
     el.addEventListener('input', function() {
-        var cardClass;
         var result = card.validate(this.value);
         if ( result.valid ) {
             el.classList.remove( cardClass );
